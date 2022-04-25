@@ -143,6 +143,8 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        'comment' => '投稿内容',
+    ],
 
 ];

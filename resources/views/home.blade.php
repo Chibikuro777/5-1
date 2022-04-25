@@ -15,7 +15,7 @@
                     @endif
                 <form action="" method="get">
                     @csrf
-                    <input type="text" name="" placeholder="いまどうしてる？" class="w-100 mb-4 p-1">
+                    <input type="text" name="comment" placeholder="いまどうしてる？" class="w-100 mb-4 p-1">
                     <div class="d-flex justify-content-end"><button name="button" class="btn btn-secondary">つぶやく</button></div>
                 </form>
                 </div>
