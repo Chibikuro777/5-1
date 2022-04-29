@@ -13,9 +13,9 @@ class PostController extends Controller
     {
         $this->validate($request, Post::$rules);
         $posts = new Post();
-        $items = $posts->getList();
+        $items = $posts->all();
 
-        return view('user.user_home', ['items' => $items]);
+        return view('user.index', ['items' => $items]);
     }
 
     public function post(Request $request)
@@ -30,6 +30,6 @@ class PostController extends Controller
             $posts->save();
         }
 
-        return view('user.user_home', ['items' => $items]);
+        return view('user.index', ['items' => $items]);
     }
 }
