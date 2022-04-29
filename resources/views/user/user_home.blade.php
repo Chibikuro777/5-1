@@ -13,7 +13,7 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                <form action="{{ action('User\PostController@post') }}" method="post">
+                <form action="{{ action('User\PostController@index') }}" method="get">
                     @csrf
                     <input type="text" name="comment" placeholder="いまどうしてる？" class="w-100 mb-4 p-1">
                     @if ($errors->any())

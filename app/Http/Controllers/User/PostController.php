@@ -9,22 +9,27 @@ use App\Post;
 
 class PostController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        return view('user.user_home');
+        $this->validate($request, Post::$rules);
+        $posts = new Post();
+        $items = $posts->getList();
+
+        return view('user.user_home', ['items' => $items]);
     }
+
     public function post(Request $request)
     {
         $this->validate($request, Post::$rules);
         $posts = new Post();
-        $form = $request->all();
-
         $items = $posts->getList();
-        return view('user.user_home', ['items' => $items]);
+        $form = $request->all();
 
         if (!empty($form['comment'])) {
             $posts->body  = $request->comment;
             $posts->save();
         }
+
+        return view('user.user_home', ['items' => $items]);
     }
 }
